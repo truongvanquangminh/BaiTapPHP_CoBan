@@ -23,31 +23,26 @@ số chẵn trong chuỗi là 8. -->
 
 //     $str = (string)$max;
 // }
-$str = "124,888,895";
+$str = "1248,457,895";
 
-$repl = str_replace(',', '', $str);
-
-$array = str_split($repl, 3);
-
+$array = explode(',', $str);
 $max = 0;
 $maxTotal = 0;
 
 foreach ($array as $number) {
-    $arrNumber = str_split($number, 1); //number 124 888 895
-    var_dump($arrNumber);
+    $arrNumber = str_split($number, 1);
     $total = 0;
 
     foreach ($arrNumber as $x) {
-        $numberParsed = (int)$x; // $ 1 2 4
+        $numberParsed = (int)$x;
         if ($numberParsed % 2 == 0) {
-            $total += $numberParsed; //6
+            $total += $numberParsed;
         }
     }
-
     if ($total > $maxTotal) {
         $maxTotal = $total;
         $max = $number;
     }
 }
 
-// echo "Tổng các số chẵn: " . $max;
+echo "Tổng các số chẵn: " . $max;

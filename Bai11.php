@@ -22,13 +22,22 @@
             </thead>
             <tbody>
                 <?php
+                // Tạo mảng lưu trữ thông tin sinh viên, với key mỗi phần tử ID_SV
                 $arHocVien = [
                     'FFSE1701001' => ['Nguyễn Văn Bảo', 95, 1],
                     'FFSE1701002' => ['Huỳnh Thị Thanh Thủy', 85, 0],
                     'FFSE1701003' => ['Ngô Việt Anh', 98, 1],
                     'FFSE1701004' => ['Nguyễn Thị Hương Lan', 100, 1]
                 ];
-                foreach ($arHocVien as $key => $value) { ?>
+                // Thêm 2 sinh viên vào mảng
+                $arHocVienAdd = [
+                    'FFSE1701005' => ['Trương Văn Quang Minh', 70, 1],
+                    'FFSE1701006' => ['Phạm Minh Quyền', 78, 0]
+                ];
+                $arHocVien = array_merge($arHocVien, $arHocVienAdd);
+                foreach ($arHocVien as $key => $value) {
+                    // if ($value[2] == 1) { //Hiển thị thông tin sinh viên có CapChungNhan = 1
+                ?>
                     <tr>
                         <th scope="row"><?php echo $key ?></th>
                         <td><?php echo $value[0] ?></td>
@@ -36,6 +45,12 @@
                         <td><?php echo $value[2] ?></td>
                     </tr>
                 <?php
+                    // Kiểm tra sinh viên có CapChungNhan = 0 thì xóa khỏi mảng
+                    // if ($value[2] == 0) {
+                    //     unset($arHocVien[$key]);
+                    //     print_r($arHocVien);
+                    // }
+                    //}
                 }
                 ?>
 
