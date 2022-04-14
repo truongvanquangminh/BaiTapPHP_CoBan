@@ -96,4 +96,3 @@ submitBtn.addEventListener('click', () => {
         }
     }
 })
-const t = "";
